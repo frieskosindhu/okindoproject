@@ -27,11 +27,25 @@ body {
 }
 
 /* Animation delay classes */
-.scroll-delay-1 { transition-delay: 0.1s; }
-.scroll-delay-2 { transition-delay: 0.2s; }
-.scroll-delay-3 { transition-delay: 0.3s; }
-.scroll-delay-4 { transition-delay: 0.4s; }
-.scroll-delay-5 { transition-delay: 0.5s; }
+.scroll-delay-1 {
+    transition-delay: 0.1s;
+}
+
+.scroll-delay-2 {
+    transition-delay: 0.2s;
+}
+
+.scroll-delay-3 {
+    transition-delay: 0.3s;
+}
+
+.scroll-delay-4 {
+    transition-delay: 0.4s;
+}
+
+.scroll-delay-5 {
+    transition-delay: 0.5s;
+}
 
 /* Slide from left animation */
 .scroll-animate-left {
@@ -620,6 +634,37 @@ body {
     color: #D2691E;
 }
 
+/* HS Code Styling */
+.hs-code {
+    font-family: "Poppins";
+    font-size: 0.9rem;
+    color: #8B4513;
+    background: linear-gradient(135deg, rgba(139, 69, 19, 0.1), rgba(210, 105, 30, 0.15));
+    padding: 10px 15px;
+    border-radius: 8px;
+    border-left: 4px solid #8B4513;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: inline-block;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.hs-code:hover {
+    background: linear-gradient(135deg, rgba(139, 69, 19, 0.15), rgba(210, 105, 30, 0.2));
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(139, 69, 19, 0.2);
+}
+
+.hs-code i {
+    color: #D2691E;
+    transition: all 0.3s ease;
+}
+
+.hs-code:hover i {
+    transform: scale(1.1);
+}
+
 .product-button-wrapper {
     text-align: left;
 }
@@ -829,46 +874,52 @@ body {
         background-size: cover;
         background-position: center;
     }
-    
+
+    /* Kahiyang brand image wrapper - full width on mobile */
+    .img-brand {
+        width: 100vw !important;
+        margin-left: calc(-50vw + 50%);
+        border-radius: 0;
+        padding: 30px 15px;
+    }
+
     /* Kahiyang brand image - full width on mobile */
     .brand-kahiyang {
-        width: 100vw !important;
+        width: 100% !important;
         max-width: none !important;
+        max-height: 300px;
         height: auto;
-        margin-left: calc(-50vw + 50%);
         object-fit: contain;
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
     }
 }
 
-/* Kahiyang Brand Image - Transparent Background & Seamless Blend */
+/* Kahiyang Brand Image - Match Filosofi Section Background */
 .brand-kahiyang {
     max-height: 200px;
     width: 100%;
     height: auto;
     object-fit: contain;
-    /* Seamless blend with section background using multiply mode */
+    /* Mix blend mode to make white background blend with gradient */
     mix-blend-mode: multiply;
     /* Smooth transition for effects */
     transition: all 0.4s ease-in-out;
-    /* Remove drop-shadow to avoid white box effect */
-    filter: drop-shadow(0 4px 8px rgba(139, 69, 19, 0.15));
+    /* Drop shadow for depth - removed because mix-blend-mode affects it */
 }
 
-/* Alternative blend method - works better if image has white background */
+/* Wrapper with same background as section-filosofi */
 .img-brand {
-    /* Add subtle gradient overlay to help blending */
-    background: linear-gradient(135deg, rgba(221, 184, 146, 0.3) 0%, rgba(196, 165, 116, 0.3) 100%);
-    padding: 20px;
-    border-radius: 12px;
+    /* Match the filosofi section gradient background */
+    background: linear-gradient(180deg, #DDB892 0%, #C4A574 50%, #8B5A2B 100%);
+    padding: 30px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Hover effect - slight scale and enhanced shadow */
+/* Hover effect - slight scale only, no shadow for seamless blend */
 .brand-kahiyang:hover {
     transform: scale(1.05);
-    filter: drop-shadow(0 15px 40px rgba(139, 69, 19, 0.35));
 }
 
 /* Medium screens */
@@ -882,7 +933,6 @@ body {
 @media (min-width: 577px) and (max-width: 768px) {
     .brand-kahiyang {
         max-height: 280px;
-        filter: drop-shadow(0 12px 35px rgba(139, 69, 19, 0.25));
     }
 }
 
@@ -890,7 +940,6 @@ body {
 @media (min-width: 769px) and (max-width: 992px) {
     .brand-kahiyang {
         max-height: 350px;
-        filter: drop-shadow(0 15px 40px rgba(139, 69, 19, 0.22));
     }
 }
 
@@ -898,7 +947,6 @@ body {
 @media (min-width: 993px) and (max-width: 1200px) {
     .brand-kahiyang {
         max-height: 400px;
-        filter: drop-shadow(0 18px 45px rgba(139, 69, 19, 0.2));
     }
 }
 
@@ -906,7 +954,6 @@ body {
 @media (min-width: 1201px) {
     .brand-kahiyang {
         max-height: 500px;
-        filter: drop-shadow(0 20px 50px rgba(139, 69, 19, 0.18));
     }
 }
 
@@ -915,24 +962,24 @@ body {
     .carousel-item img {
         height: 250px;
     }
-    
+
     .carousel-height-custom {
         max-height: 300px;
     }
-    
+
     .image-grid {
         grid-template-columns: 1fr;
         grid-template-rows: 180px 180px 180px;
         grid-gap: 10px;
     }
-    
+
     .img-large-wrapper {
         grid-row: span 1;
         width: 100%;
         height: 100%;
         min-height: 180px;
     }
-    
+
     .image-grid img {
         width: 100%;
         height: 100%;
@@ -940,32 +987,32 @@ body {
         object-fit: cover;
         object-position: center;
     }
-    
+
     /* Reduced mobile spacing for all sections */
     .section-perusahaan {
         padding: 40px 0;
     }
-    
+
     .section-whyus {
         padding: 40px 0;
     }
-    
+
     .section-filosofi {
         padding: 40px 0;
     }
-    
+
     .product-area {
         padding: 40px 0;
     }
-    
+
     .section-perusahaan h2 {
         font-size: 1.8rem;
     }
-    
+
     .section-whyus h2 {
         font-size: 1.4rem;
     }
-    
+
     /* Product image - reduced height to hide Gemini logo */
     .product-image {
         width: 100vw;
@@ -974,34 +1021,34 @@ body {
         background-size: cover;
         background-position: center;
     }
-    
+
     .product-content-wrapper {
         height: auto;
     }
-    
+
     .product-image .image-content {
         width: 140px;
         height: 140px;
     }
-    
+
     .product-image .image-content .experience {
         font-size: 16px;
     }
-    
+
     .product-image .image-content .experience span {
         font-size: 32px;
     }
-    
+
     .brand-kahiyang {
         max-height: 250px;
     }
-    
+
     /* Vision & Mission Cards Tablet */
     .vision-mission-card {
         padding: 28px 22px;
         margin-bottom: 20px;
     }
-    
+
     .icon-wrapper {
         width: 65px;
         height: 65px;
@@ -1014,55 +1061,55 @@ body {
     .carousel-item img {
         height: 300px;
     }
-    
+
     .carousel-height-custom {
         max-height: 350px;
     }
-    
+
     .image-grid {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 160px 160px;
         grid-gap: 10px;
     }
-    
+
     .img-large-wrapper {
         grid-row: span 2;
         width: 100%;
         height: 100%;
     }
-    
+
     .image-grid img {
         width: 100%;
         height: 100%;
         object-fit: cover;
         object-position: center;
     }
-    
+
     /* Reduced mobile spacing for all sections */
     .section-perusahaan {
         padding: 45px 0;
     }
-    
+
     .section-whyus {
         padding: 45px 0;
     }
-    
+
     .section-filosofi {
         padding: 45px 0;
     }
-    
+
     .product-area {
         padding: 45px 0;
     }
-    
+
     .section-perusahaan h2 {
         font-size: 1.8rem;
     }
-    
+
     .section-whyus h2 {
         font-size: 1.4rem;
     }
-    
+
     /* Product image - reduced height to hide Gemini logo */
     .product-image {
         width: 100vw;
@@ -1071,21 +1118,21 @@ body {
         background-size: cover;
         background-position: center;
     }
-    
+
     .product-content-wrapper {
         height: auto;
     }
-    
+
     .brand-kahiyang {
         max-height: 280px;
     }
-    
+
     /* Vision & Mission Cards Tablet */
     .vision-mission-card {
         padding: 30px 25px;
         margin-bottom: 25px;
     }
-    
+
     .icon-wrapper {
         width: 70px;
         height: 70px;
@@ -1098,49 +1145,49 @@ body {
     .navbar-brand span {
         font-size: 1.3rem;
     }
-    
+
     .logo-custom {
         height: 55px;
     }
-    
+
     .nav-link {
         font-size: 1rem;
     }
-    
+
     .carousel-item img {
         height: 400px;
     }
-    
+
     .carousel-height-custom {
         max-height: 450px;
     }
-    
+
     .image-grid {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 200px 200px;
     }
-    
+
     .section-perusahaan,
     .section-whyus {
         padding: 60px 0;
     }
-    
+
     .section-filosofi {
         padding: 60px 0;
     }
-    
+
     .product-area {
         padding: 50px 0;
     }
-    
+
     .section-perusahaan h2 {
         font-size: 2rem;
     }
-    
+
     .section-whyus h2 {
         font-size: 1.6rem;
     }
-    
+
     /* Product image - reduced height to hide Gemini logo */
     .product-image {
         width: 100%;
@@ -1148,19 +1195,19 @@ body {
         background-size: cover;
         background-position: center;
     }
-    
+
     .product-content-wrapper {
         height: auto;
     }
-    
+
     .brand-kahiyang {
         max-height: 350px;
     }
-    
+
     .product-content {
         padding: 0 30px;
     }
-    
+
     .main-btn {
         margin-left: 30px;
     }
@@ -1171,16 +1218,16 @@ body {
     .carousel-item img {
         height: 450px;
     }
-    
+
     .carousel-height-custom {
         max-height: 500px;
     }
-    
+
     .image-grid {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 200px 200px;
     }
-    
+
     /* Product image - reduced height to hide Gemini logo */
     .product-image {
         width: 100%;
@@ -1188,24 +1235,24 @@ body {
         background-size: cover;
         background-position: center;
     }
-    
+
     .product-content-wrapper {
         height: auto;
     }
-    
+
     .brand-kahiyang {
         max-height: 400px;
     }
-    
+
     .section-perusahaan,
     .section-whyus {
         padding: 60px 0;
     }
-    
+
     .section-filosofi {
         padding: 60px 0;
     }
-    
+
     .product-area {
         padding: 60px 0;
     }
@@ -1216,16 +1263,16 @@ body {
     .carousel-item img {
         height: 550px;
     }
-    
+
     .carousel-height-custom {
         max-height: 600px;
     }
-    
+
     .image-grid {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 250px 250px;
     }
-    
+
     .product-image {
         width: 100%;
         height: 85%;
@@ -1234,7 +1281,7 @@ body {
         background-size: cover;
         background-position: center;
     }
-    
+
     .product-content-wrapper {
         height: auto;
     }
@@ -1266,7 +1313,7 @@ body {
         justify-content: flex-start;
         align-items: flex-start;
     }
-    
+
     .experience-badge-desktop {
         display: none !important;
     }
@@ -1277,7 +1324,7 @@ body {
     .experience-badge-mobile {
         display: none !important;
     }
-    
+
     .experience-badge-desktop {
         display: flex !important;
         position: absolute;
@@ -1288,7 +1335,7 @@ body {
         justify-content: center;
         align-items: center;
     }
-    
+
     .product-area {
         position: relative;
     }
@@ -1301,11 +1348,11 @@ body {
         height: 130px;
         font-size: 16px;
     }
-    
+
     .experience-badge-desktop .experience span {
         font-size: 32px;
     }
-    
+
     .experience-badge-desktop {
         top: 25px;
     }
@@ -1318,11 +1365,11 @@ body {
         height: 160px;
         font-size: 20px;
     }
-    
+
     .experience-badge-desktop .experience span {
         font-size: 42px;
     }
-    
+
     .experience-badge-desktop {
         top: 40px;
     }
@@ -1334,55 +1381,55 @@ body {
         max-width: 90% !important;
         margin: 5vh auto !important;
     }
-    
+
     .modal-content {
         max-height: 30vh !important;
         border-radius: 16px;
     }
-    
+
     .modal-header {
         padding: 12px 15px;
         flex-shrink: 0;
     }
-    
+
     .modal-title {
         font-size: 1rem;
     }
-    
+
     .modal-body {
         padding: 15px;
         overflow-y: auto;
         max-height: calc(30vh - 60px);
     }
-    
+
     .modal-footer {
         padding: 10px 15px;
         flex-shrink: 0;
     }
-    
-    .feature-list > li {
+
+    .feature-list>li {
         flex-direction: row;
         align-items: center;
         margin-bottom: 10px;
         padding: 12px;
     }
-    
+
     .feature-icon {
         width: 40px;
         height: 40px;
         min-width: 40px;
         margin-right: 12px;
     }
-    
+
     .feature-icon i {
         font-size: 16px;
     }
-    
+
     .feature-content strong {
         font-size: 0.85rem;
         margin-bottom: 4px;
     }
-    
+
     .feature-content p {
         font-size: 0.75rem;
         line-height: 1.4;
@@ -1391,12 +1438,12 @@ body {
         -webkit-box-orient: vertical;
         overflow: hidden;
     }
-    
+
     .btn-close {
         padding: 8px;
         background-size: 12px;
     }
-    
+
     .modal-footer .main-btn {
         font-size: 12px;
         padding: 8px 20px;
@@ -1439,7 +1486,7 @@ body {
     left: 10%;
     width: 80%;
     height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
     transform: translateY(-50%);
 }
 
@@ -1519,15 +1566,20 @@ body {
 
 /* Floating Leaf Animation */
 @keyframes floatLeaf {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0) rotate(var(--rotation, 0deg));
     }
+
     25% {
         transform: translateY(-15px) rotate(5deg);
     }
+
     50% {
         transform: translateY(-8px) rotate(-3deg);
     }
+
     75% {
         transform: translateY(-12px) rotate(8deg);
     }
@@ -1587,21 +1639,26 @@ body {
 
 /* Sparkle Animation */
 @keyframes sparkle {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 0.3;
         transform: scale(1) rotate(0deg);
         filter: brightness(1);
     }
+
     25% {
         opacity: 0.5;
         transform: scale(1.1) rotate(90deg);
         filter: brightness(1.3);
     }
+
     50% {
         opacity: 0.4;
         transform: scale(0.95) rotate(180deg);
         filter: brightness(1.1);
     }
+
     75% {
         opacity: 0.6;
         transform: scale(1.05) rotate(270deg);
@@ -1636,10 +1693,13 @@ body {
 
 /* Diamond Sparkle Animation */
 @keyframes diamondSparkle {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 0.3;
         transform: scale(1);
     }
+
     50% {
         opacity: 0.7;
         transform: scale(1.3);
@@ -1651,21 +1711,20 @@ body {
     position: absolute;
     width: 300px;
     height: 300px;
-    background: conic-gradient(from 0deg, 
-        rgba(255, 215, 0, 0.1) 0deg, 
-        rgba(255, 165, 0, 0.05) 30deg,
-        rgba(255, 215, 0, 0.1) 60deg,
-        rgba(255, 140, 0, 0.05) 90deg,
-        rgba(255, 215, 0, 0.1) 120deg,
-        rgba(255, 165, 0, 0.05) 150deg,
-        rgba(255, 215, 0, 0.1) 180deg,
-        rgba(255, 140, 0, 0.05) 210deg,
-        rgba(255, 215, 0, 0.1) 240deg,
-        rgba(255, 165, 0, 0.05) 270deg,
-        rgba(255, 215, 0, 0.1) 300deg,
-        rgba(255, 140, 0, 0.05) 330deg,
-        rgba(255, 215, 0, 0.1) 360deg
-    );
+    background: conic-gradient(from 0deg,
+            rgba(255, 215, 0, 0.1) 0deg,
+            rgba(255, 165, 0, 0.05) 30deg,
+            rgba(255, 215, 0, 0.1) 60deg,
+            rgba(255, 140, 0, 0.05) 90deg,
+            rgba(255, 215, 0, 0.1) 120deg,
+            rgba(255, 165, 0, 0.05) 150deg,
+            rgba(255, 215, 0, 0.1) 180deg,
+            rgba(255, 140, 0, 0.05) 210deg,
+            rgba(255, 215, 0, 0.1) 240deg,
+            rgba(255, 165, 0, 0.05) 270deg,
+            rgba(255, 215, 0, 0.1) 300deg,
+            rgba(255, 140, 0, 0.05) 330deg,
+            rgba(255, 215, 0, 0.1) 360deg);
     border-radius: 50%;
     opacity: 0.15;
     animation: rotateSunburst 20s linear infinite;
@@ -1681,6 +1740,7 @@ body {
     from {
         transform: rotate(0deg);
     }
+
     to {
         transform: rotate(360deg);
     }
@@ -1691,11 +1751,10 @@ body {
     position: absolute;
     width: 100px;
     height: 100px;
-    background: radial-gradient(circle at 30% 30%, 
-        rgba(255, 215, 0, 0.4) 0%,
-        rgba(255, 165, 0, 0.2) 50%,
-        rgba(139, 69, 19, 0.1) 100%
-    );
+    background: radial-gradient(circle at 30% 30%,
+            rgba(255, 215, 0, 0.4) 0%,
+            rgba(255, 165, 0, 0.2) 50%,
+            rgba(139, 69, 19, 0.1) 100%);
     border-radius: 50%;
     opacity: 0.3;
     animation: pulseOrb 5s ease-in-out infinite;
@@ -1711,10 +1770,13 @@ body {
 
 /* Orb Pulse Animation */
 @keyframes pulseOrb {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: scale(1);
         opacity: 0.3;
     }
+
     50% {
         transform: scale(1.2);
         opacity: 0.5;
@@ -1724,11 +1786,10 @@ body {
 /* Caramel Drip Effects */
 .caramel-drip {
     position: absolute;
-    background: linear-gradient(180deg, 
-        rgba(139, 69, 19, 0.3) 0%,
-        rgba(205, 133, 63, 0.5) 50%,
-        rgba(210, 105, 30, 0.7) 100%
-    );
+    background: linear-gradient(180deg,
+            rgba(139, 69, 19, 0.3) 0%,
+            rgba(205, 133, 63, 0.5) 50%,
+            rgba(210, 105, 30, 0.7) 100%);
     border-radius: 0 0 50% 50%;
     opacity: 0.4;
     animation: drip 6s ease-in-out infinite;
@@ -1752,10 +1813,13 @@ body {
 
 /* Caramel Drip Animation */
 @keyframes drip {
-    0%, 100% {
+
+    0%,
+    100% {
         height: 80px;
         opacity: 0.4;
     }
+
     50% {
         height: 100px;
         opacity: 0.6;
@@ -1775,18 +1839,23 @@ body {
 }
 
 @keyframes particleFloat {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0) translateX(0);
         opacity: 0.3;
     }
+
     25% {
         transform: translateY(-30px) translateX(20px);
         opacity: 0.6;
     }
+
     50% {
         transform: translateY(-15px) translateX(-10px);
         opacity: 0.4;
     }
+
     75% {
         transform: translateY(-40px) translateX(15px);
         opacity: 0.5;
@@ -1798,21 +1867,23 @@ body {
     position: absolute;
     width: 200px;
     height: 200px;
-    background: radial-gradient(circle, 
-        rgba(255, 215, 0, 0.15) 0%,
-        rgba(255, 165, 0, 0.08) 50%,
-        transparent 100%
-    );
+    background: radial-gradient(circle,
+            rgba(255, 215, 0, 0.15) 0%,
+            rgba(255, 165, 0, 0.08) 50%,
+            transparent 100%);
     border-radius: 50%;
     filter: blur(20px);
     animation: warmPulse 4s ease-in-out infinite;
 }
 
 @keyframes warmPulse {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: scale(1);
         opacity: 0.8;
     }
+
     50% {
         transform: scale(1.2);
         opacity: 1;
@@ -1828,10 +1899,13 @@ body {
 }
 
 @keyframes threadShimmer {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 0.3;
         width: 100px;
     }
+
     50% {
         opacity: 0.6;
         width: 150px;
@@ -1852,7 +1926,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: 
+    background:
         radial-gradient(circle at 10% 20%, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
         radial-gradient(circle at 90% 80%, rgba(255, 165, 0, 0.05) 0%, transparent 50%);
     pointer-events: none;
@@ -1866,7 +1940,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: 
+    background:
         radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.08) 0%, transparent 40%),
         radial-gradient(circle at 80% 30%, rgba(205, 133, 63, 0.05) 0%, transparent 40%);
     pointer-events: none;
@@ -1884,7 +1958,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: 
+    background:
         radial-gradient(ellipse at 50% 0%, rgba(255, 215, 0, 0.1) 0%, transparent 60%),
         radial-gradient(circle at 30% 70%, rgba(255, 165, 0, 0.08) 0%, transparent 50%);
     pointer-events: none;
@@ -1898,7 +1972,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: 
+    background:
         radial-gradient(circle at 15% 50%, rgba(255, 215, 0, 0.06) 0%, transparent 40%),
         radial-gradient(circle at 85% 50%, rgba(139, 69, 19, 0.05) 0%, transparent 40%);
     pointer-events: none;
@@ -1910,28 +1984,28 @@ body {
         width: 80px;
         height: 80px;
     }
-    
+
     .bg-crystal,
     .sugar-crystal {
         width: 18px;
         height: 18px;
     }
-    
+
     .bg-sunburst {
         width: 150px;
         height: 150px;
     }
-    
+
     .bg-orb {
         width: 50px;
         height: 50px;
     }
-    
+
     .caramel-drip {
         width: 20px;
         height: 50px;
     }
-    
+
     .artistic-bg-section,
     .artistic-bg {
         opacity: 0.7;
@@ -1943,23 +2017,23 @@ body {
         width: 60px;
         height: 60px;
     }
-    
+
     .bg-crystal,
     .sugar-crystal {
         width: 12px;
         height: 12px;
     }
-    
+
     .bg-sunburst {
         width: 100px;
         height: 100px;
     }
-    
+
     .bg-orb {
         width: 35px;
         height: 35px;
     }
-    
+
     .caramel-drip {
         width: 15px;
         height: 35px;
@@ -1977,6 +2051,7 @@ html {
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
@@ -2119,6 +2194,7 @@ body {
     0% {
         background-position: 0% 0%;
     }
+
     100% {
         background-position: 200% 0%;
     }
@@ -2203,7 +2279,7 @@ body {
         position: relative;
         overflow: hidden;
     }
-    
+
     .product-image::before {
         content: '';
         position: absolute;
